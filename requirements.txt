@@ -1,0 +1,47 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# DB
+sqlalchemy[asyncio]==2.0.35
+aiomysql==0.2.0
+pymysql==1.1.1
+alembic==1.13.2
+cryptography==43.0.1
+
+# Auth
+python-jose[cryptography]==3.3.0
+passlib==1.7.4
+python-multipart==0.0.9
+slowapi==0.1.9
+
+# Background tasks
+celery==5.4.0
+redis==5.0.8
+
+# LLM
+google-generativeai==0.8.2
+
+# Speech
+faster-whisper==1.0.3
+elevenlabs==1.9.0
+
+# Telephony
+twilio==9.3.2
+
+# Knowledge base
+chromadb==0.5.5
+pypdf==4.3.1
+python-docx==1.1.2
+
+# Utils
+python-dotenv==1.0.1
+httpx==0.27.2
+tenacity==9.0.0
+loguru==0.7.2
+websockets==13.1
+
+# Testing
+pytest==8.3.3
+pytest-asyncio==0.24.0
