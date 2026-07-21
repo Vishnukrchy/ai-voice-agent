@@ -28,29 +28,6 @@ architecture so later pieces slot in cleanly:
 - Docker Compose (API, Celery worker, MySQL, Redis), Dockerfile
 - Alembic setup, admin-seed script, Postman collection, pytest scaffold
 
-## What's intentionally NOT done yet
-
-The **real-time call audio loop** (`app/websocket/media_stream.py`) is wired
-up for connection lifecycle and event routing, but the actual audio
-pipeline — voice-activity detection, mu-law↔PCM transcoding, streaming
-Whisper transcription, and streaming TTS playback back to Twilio — is left
-as the next milestone. That inner loop is the highest-risk part of this
-system (latency, interruption handling, audio format correctness) and
-deserves a dedicated pass with real call testing rather than being written
-speculatively. The module docstring lays out the exact next steps.
-
-The **React frontend** has not been scaffolded yet — say the word and it's next.
-
-## Config profiles (local / staging / production)
-
-Profile selection works like Spring's `spring.profiles.active`: an `APP_ENV`
-environment variable — `local`, `staging`, or `production` — decides which
-`.env.<profile>` file gets loaded. `APP_ENV` itself always comes from the
-real process/shell environment, never from a file, so it's explicit every
-time you start the app.
-
-**First-time setup — create your three profile files:**
-
 ```bash
 cp .env.example .env.local
 cp .env.example .env.staging
