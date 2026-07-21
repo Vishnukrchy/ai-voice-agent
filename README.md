@@ -52,9 +52,9 @@ time you start the app.
 **First-time setup — create your three profile files:**
 
 ```bash
-cp .env.local .env.local
-cp .env.staging .env.staging
-cp .env.production .env.production
+cp .env.example .env.local
+cp .env.example .env.staging
+cp .env.example .env.production
 # fill in real values in each — never commit these three files
 ```
 
@@ -76,10 +76,10 @@ Compose to switch profiles.
 **Running without Docker (bare uvicorn on your host):**
 
 ```bash
-APP_ENV=staging uvicorn app.main:app --reload
+APP_ENV=local uvicorn app.main:app --reload
 ```
 
-No script needed here — the app reads `.env.staging` directly since
+No script needed here — the app reads `.env.local` directly since
 `APP_ENV` is already set in your shell.
 
 **What differs per profile:** `DEBUG`, `BASE_URL`, `CORS_ORIGINS`,
